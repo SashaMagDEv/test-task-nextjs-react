@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+:focus {
+    outline: none !important;
+}
+
+:root {
+    @apply bg-gray-900;
+    color: white;
+}
+a,
+button {
+    cursor: pointer;
+}
