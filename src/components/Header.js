@@ -10,7 +10,7 @@ export default function Header() {
 
     return (
         <header className="bg-white flex items-center justify-between px-6 py-4 shadow">
-            <h1 className="text-red-500 text-3xl font-bold text-center flex-grow">
+            <h1 className="text-black text-3xl font-bold text-center flex-grow">
                 {title}
             </h1>
             <AddPostButton />

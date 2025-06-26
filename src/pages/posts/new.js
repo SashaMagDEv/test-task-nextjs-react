@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import axios from 'axios';
 import { useState } from 'react';
 import PostForm from "../../components/PostForm";
 import { createPost } from "../../api/post";

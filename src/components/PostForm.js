@@ -9,6 +9,7 @@ export default function PostForm({ onSubmit, isLoading }) {
         formState: { errors },
     } = useForm();
 
+
     return (
         <form onSubmit={handleSubmit(onSubmit)} noValidate
               className="max-w-xl mx-auto bg-white dark:bg-gray-800 p-6 rounded shadow space-y-6">

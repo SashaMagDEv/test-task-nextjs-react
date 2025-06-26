@@ -8,16 +8,17 @@ export const usePostContext = () => useContext(PostContext);
 export const PostProvider = ({ children }) => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const apiPosts = await getPosts();
                 const localPosts = JSON.parse(localStorage.getItem('customPosts')) || [];
-                console.log('localPosts:', localPosts);
 
                 setPosts([...localPosts, ...apiPosts]);
             } catch (error) {
+                setError('Не вдалося завантажити пости. Спробуйте ще раз.');
                 console.error(error);
             } finally {
                 setLoading(false);
@@ -28,14 +29,18 @@ export const PostProvider = ({ children }) => {
     }, []);
 
     const addPost = (newPost) => {
-        setPosts(prev => [newPost, ...prev]);
+        const id = `local-${Date.now()}`;
+        const postWithId = { ...newPost, id};
+
+        setPosts(prev => [postWithId, ...prev]);
+
         const existing = JSON.parse(localStorage.getItem('customPosts')) || [];
-        localStorage.setItem('customPosts', JSON.stringify([newPost, ...existing]));
-        console.log('Додаю пост:', newPost);
+        localStorage.setItem('customPosts', JSON.stringify([postWithId, ...existing]));
+        console.log('Додаю пост:', postWithId);
     };
 
     return (
-        <PostContext.Provider value={{ posts, loading, addPost }}>
+        <PostContext.Provider value={{ posts, loading, error, addPost }}>
             {children}
         </PostContext.Provider>
     );
