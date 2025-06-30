@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Loader from "../../components/Loader";
-import { getCommentsByPostId, getPostById } from "../../api/post";
-import { usePostContext } from "../../context/PostContext";
+import Loader from "../../../components/Loader";
+import { getCommentsByPostId, getPostById } from "../../../api/post";
+import { usePostContext } from "../../../context/PostContext";
 
 export default function PostDetail() {
     const router = useRouter();

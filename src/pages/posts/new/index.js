@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import PostForm from "../../components/PostForm";
-import { createPost } from "../../api/post";
-import {usePostContext} from "../../context/PostContext";
+import PostForm from "../../../components/PostForm";
+import { createPost } from "../../../api/post";
+import {usePostContext} from "../../../context/PostContext";
 
 export default function NewPost() {
     const router = useRouter();

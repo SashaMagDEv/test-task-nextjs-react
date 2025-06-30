@@ -36,7 +36,6 @@ export const PostProvider = ({ children }) => {
 
         const existing = JSON.parse(localStorage.getItem('customPosts')) || [];
         localStorage.setItem('customPosts', JSON.stringify([postWithId, ...existing]));
-        console.log('Додаю пост:', postWithId);
     };
 
     return (

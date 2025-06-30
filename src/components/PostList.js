@@ -10,7 +10,7 @@ export default function PostList() {
     if (!posts.length) return <p className="text-gray-500">Пости відсутні.</p>;
 
     return (
-        <ul className="grid grid-cols-3 gap-4 auto-rows-fr">
+        <ul className="grid grid-cols-3 gap-4 auto-rows-fr mt-4">
             {posts.map(post => (
                 <PostItem key={post.id} post={post} />
             ))}

@@ -7,7 +7,9 @@
 :root {
     @apply bg-gray-900;
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
+
 a,
 button {
     cursor: pointer;
