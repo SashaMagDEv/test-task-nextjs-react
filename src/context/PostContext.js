@@ -1,5 +1,6 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import { getPosts } from '../api/post';
+import { createContext, useContext, useState, useEffect } from "react";
+
+import { getPosts } from "../api/post";
 
 const PostContext = createContext();
 
@@ -14,11 +15,11 @@ export const PostProvider = ({ children }) => {
         const fetchData = async () => {
             try {
                 const apiPosts = await getPosts();
-                const localPosts = JSON.parse(localStorage.getItem('customPosts')) || [];
+                const localPosts = JSON.parse(localStorage.getItem("customPosts")) || [];
 
                 setPosts([...localPosts, ...apiPosts]);
             } catch (error) {
-                setError('Не вдалося завантажити пости. Спробуйте ще раз.');
+                setError("Не вдалося завантажити пости. Спробуйте ще раз.");
                 console.error(error);
             } finally {
                 setLoading(false);
@@ -34,8 +35,8 @@ export const PostProvider = ({ children }) => {
 
         setPosts(prev => [postWithId, ...prev]);
 
-        const existing = JSON.parse(localStorage.getItem('customPosts')) || [];
-        localStorage.setItem('customPosts', JSON.stringify([postWithId, ...existing]));
+        const existing = JSON.parse(localStorage.getItem("customPosts")) || [];
+        localStorage.setItem("customPosts", JSON.stringify([postWithId, ...existing]));
     };
 
     return (

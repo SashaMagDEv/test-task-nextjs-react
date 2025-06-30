@@ -1,6 +1,6 @@
-import { usePostContext } from '../context/PostContext';
-import PostItem from './PostItem';
-import Loader from './Loader';
+import Loader from "./Loader";
+import PostItem from "./PostItem";
+import { usePostContext } from "../context/PostContext";
 
 export default function PostList() {
     const { posts, loading, error} = usePostContext();

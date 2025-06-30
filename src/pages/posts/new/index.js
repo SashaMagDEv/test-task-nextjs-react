@@ -1,7 +1,8 @@
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import PostForm from "../../../components/PostForm";
+import { useRouter } from "next/router";
+import { useState } from "react";
+
 import { createPost } from "../../../api/post";
+import PostForm from "../../../components/PostForm";
 import {usePostContext} from "../../../context/PostContext";
 
 export default function NewPost() {
@@ -19,12 +20,12 @@ export default function NewPost() {
             setSuccess(true);
 
             setTimeout(() => {
-                router.push('/');
+                router.push("/");
             }, 2000);
 
 
         } catch (error) {
-            console.error('Помилка створення поста', error);
+            console.error("Помилка створення поста", error);
         } finally {
             setIsLoading(false);
         }
@@ -32,7 +33,7 @@ export default function NewPost() {
 
     return (
         <div className="my-4">
-            {success && <p style={{ color: 'green' }}>✅ Пост успішно створено!</p>}
+            {success && <p style={{ color: "green" }}>✅ Пост успішно створено!</p>}
             <PostForm onSubmit={onSubmit} isLoading={isLoading} />
         </div>
     );

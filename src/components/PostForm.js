@@ -1,5 +1,5 @@
-import { useForm } from 'react-hook-form';
 import {useRouter} from "next/router";
+import { useForm } from "react-hook-form";
 
 export default function PostForm({ onSubmit, isLoading }) {
     const router = useRouter();
@@ -19,7 +19,7 @@ export default function PostForm({ onSubmit, isLoading }) {
                 </label>
                 <input
                     type="text"
-                    {...register('title', {required: 'Заголовок обовʼязковий'})}
+                    {...register("title", {required: "Заголовок обовʼязковий"})}
                     className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                 />
                 {errors.title && (
@@ -32,7 +32,7 @@ export default function PostForm({ onSubmit, isLoading }) {
                     Текст:
                 </label>
                 <textarea
-                    {...register('body', {required: 'Текст поста обовʼязковий'})}
+                    {...register("body", {required: "Текст поста обовʼязковий"})}
                     rows={5}
                     className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                 />
@@ -47,7 +47,7 @@ export default function PostForm({ onSubmit, isLoading }) {
                     disabled={isLoading}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded disabled:opacity-50 transition duration-200"
                 >
-                    {isLoading ? 'Відправка...' : 'Створити'}
+                    {isLoading ? "Відправка..." : "Створити"}
                 </button>
                 <button
                     onClick={() => router.back()}

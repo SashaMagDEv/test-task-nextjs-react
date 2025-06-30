@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Loader from "../../../components/Loader";
+
 import { getCommentsByPostId, getPostById } from "../../../api/post";
+import Loader from "../../../components/Loader";
 import { usePostContext } from "../../../context/PostContext";
 
 export default function PostDetail() {
@@ -13,10 +14,10 @@ export default function PostDetail() {
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {
-        if (typeof id !== 'string') return;
+        if (typeof id !== "string") return;
 
         const fetchData = async () => {
-            const isLocal = String(id).startsWith('local-');
+            const isLocal = String(id).startsWith("local-");
             const localPost = posts.find(p => String(p.id) === String(id));
 
             if (isLocal && localPost) {
@@ -34,7 +35,7 @@ export default function PostDetail() {
                 setPost(postData);
                 setComments(commentsData);
             } catch (error) {
-                console.error('Помилка завантаження даних:', error);
+                console.error("Помилка завантаження даних:", error);
             } finally {
                 setLoader(false);
             }

@@ -1,8 +1,11 @@
-import Header from '@/components/Header';
-import '@/styles/globals.css';
-import { PostProvider } from '@/context/PostContext';
-import Head from 'next/head';
+import "@/styles/globals.css";
+
+import Head from "next/head";
 import {useRouter} from "next/router";
+
+import Header from "@/components/Header";
+import { PostProvider } from "@/context/PostContext";
+
 import {getTitleByPath} from "../utils/getTitleByPath";
 
 export default function MyApp({ Component, pageProps }) {
