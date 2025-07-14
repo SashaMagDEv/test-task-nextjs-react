@@ -1,10 +1,16 @@
+import {getPosts} from "../api/post.js";
 import PostList from "../components/PostList";
 
-export default function Home() {
+export default function Home({ posts }) {
 
-    return (
-        <div>
-            <PostList />
-        </div>
-    );
+    return  <PostList initialPosts={posts} />;
+}
+export async function getServerSideProps() {
+    const posts = await getPosts()
+
+    return {
+        props: {
+            posts,
+        },
+    };
 }

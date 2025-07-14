@@ -1,6 +1,8 @@
 import Link from "next/link";
+import React from "react";
 
-export default function PostItem({ post }) {
+
+function PostItem({ post }) {
     return (
         <li className="mb-2">
             <Link
@@ -12,3 +14,5 @@ export default function PostItem({ post }) {
         </li>
     );
 }
+
+export default React.memo(PostItem);

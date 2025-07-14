@@ -47,6 +47,7 @@ export default function PostDetail() {
     if (loader) return <Loader />;
     if (!post) return <p>Пост не знайдено</p>;
 
+
     return (
         <div className="bg-white dark:bg-gray-800 p-6 rounded shadow max-w-3xl mx-auto mt-6">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
